@@ -1,0 +1,46 @@
+.tile{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height:  16rem;
+    margin-bottom: 8rem;
+    height: 14rem;
+    cursor: pointer;
+
+    &-inner-content{
+        background-color: $light-gray;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        height: 70%;
+        position: relative;
+        border-radius: 1rem;
+        text-align: center;
+        padding-top:  $image-size / 2;
+        padding-left: 0.7rem;
+        padding-right: 0.7rem;
+
+        span {
+            color: $text-secondary;
+            font-size: $font-small;
+            line-height: $small-line-height;
+        }
+     
+    }
+
+    &-image{
+        position: absolute;
+        width: $image-size;
+        height: $image-size;
+        overflow: hidden;
+        border-radius: 50%;
+        top: calc(0% - $image-size / 2);
+        left: calc(50% - $image-size / 2);
+    }
+
+    &-inner-content-body{
+        height: 90%;
+        overflow: scroll;
+    }
+
+
+
+}
