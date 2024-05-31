@@ -1,1 +1,83 @@
-$red: black;
+$main-bg: rgb(250, 249, 249);
+$primary-color: #1E1E2C;
+$secondary-color: #FF6F61;
+
+$accent-color: #FFD700;
+$light-gray: #F5F5F5;
+$dark-gray: #4A4A4A;
+
+$text-primary: #333333;
+$text-secondary: #777777;
+$link-color: #FF6F61;
+
+$background-light: #FFFFFF;
+$background-dark: #2C2C2C;
+
+$spacing-small: 0.5rem;
+$spacing-medium: 1rem;
+$spacing-large: 2rem;
+
+$font-small: 0.875rem;
+$font-medium: 1rem;
+$font-large: 1.5rem;
+$font-xlarge: 2rem;
+
+$border-radius: 0.25rem;
+$border-color: #E0E0E0;
+
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    color-scheme: light dark;
+    color: $primary-color;
+    background-color: $main-bg;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+body {
+  background-color: $main-bg;
+  font-size: $font-medium;
+  line-height: 1.5;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.button {
+  background-color: $primary-color;
+  color: $background-light;
+  padding: $spacing-small $spacing-medium;
+  border-radius: $border-radius;
+  border: 1px solid $border-color;
+  
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
+
+h1 {
+  font-size: $font-xlarge;
+  margin: $spacing-medium 0;
+  font-weight: 400;
+}
+
+.card {
+  background-color: $background-light;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  padding: $spacing-medium;
+  margin: $spacing-medium 0;
+}
+
