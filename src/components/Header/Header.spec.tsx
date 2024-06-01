@@ -1,10 +1,10 @@
-import { render, screen } from '@testing-library/react';
-import { Header } from './Header';
+import { render, screen } from "@testing-library/react";
+import { Header } from "./Header";
 
-describe('Header', () => {
-  it('renders the header component', () => {
+describe("Header", () => {
+  it("renders the header component", () => {
     render(<Header />);
-    const headerElement = screen.getByText('Podcaster');
+    const headerElement = screen.getByText("Podcaster");
     expect(headerElement).toBeInTheDocument();
   });
 });

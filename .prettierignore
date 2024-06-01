@@ -1,0 +1,13 @@
+# Ignore artifacts:
+build
+coverage
+node_modules
+
+# Ignore all HTML files:
+*.html
+
+# Ignore specific files in a folder:
+src/some-folder/ignored-file.ts
+
+# Ignore all files in a specific folder:
+src/ignored-folder/**

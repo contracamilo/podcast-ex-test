@@ -1,13 +1,11 @@
+import { ReactNode } from "react";
+import { Header } from "../Header/Header";
 
-import { ReactNode } from "react"
-import { Header } from "../Header/Header"
-
-export const MainLayout = ({children}: {children: ReactNode}) => {
+export const MainLayout = ({ children }: { children: ReactNode }) => {
   return (
     <div className="container">
-        <Header />
-        {children}
+      <Header />
+      {children}
     </div>
-  )
-}
-
+  );
+};
