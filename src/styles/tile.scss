@@ -9,12 +9,12 @@
 
     &-inner-content{
         background-color: $light-gray;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 2px 4px $background-medium;
         height: 70%;
         position: relative;
         border-radius: 1rem;
         text-align: center;
-        padding-top:  $image-size / 2;
+        padding-top:  $spacing-xlarge;
         padding-left: 0.7rem;
         padding-right: 0.7rem;
 
@@ -32,8 +32,10 @@
         height: $image-size;
         overflow: hidden;
         border-radius: 50%;
-        top: calc(0% - $image-size / 2);
-        left: calc(50% - $image-size / 2);
+        transform: translate(-50%, -50%);
+        top: 0%;
+        left: 50%;
+        translate: (-50%, -50%);
     }
 
     &-inner-content-body{
