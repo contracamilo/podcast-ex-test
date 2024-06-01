@@ -1,0 +1,14 @@
+.podcast-details{
+    display: flex;
+    align-items: center;
+    padding: 1em;
+    gap: 1em;
+
+    &-side-panel{
+        width: 30%;
+    }
+
+    &-side-panel-grid-container{
+        width: 70%;
+    }
+}

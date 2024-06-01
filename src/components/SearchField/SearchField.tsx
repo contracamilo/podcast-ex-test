@@ -29,7 +29,7 @@ export const SearchField: FC<SearchFieldProps> = ({
         placeholder={placeholder}
         value={searchTerm}
         onChange={action}
-        aria-label="Campo de búsqueda"
+        aria-label="Search field"
         aria-describedby="searchFieldError"
         autoComplete="off"
         autoFocus

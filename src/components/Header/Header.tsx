@@ -18,7 +18,7 @@ export const Header = () => {
   );
 
   return (
-    <header className="header-container">
+    <header data-testid="header-component" className="header-container">
       <Link to="/">
         <h1>Podcaster</h1>
       </Link>
