@@ -1,12 +1,7 @@
-import { MainLayout } from "./components/Layout/MainLayout";
-import { Home } from "./pages/Home";
+import RouterWrapper from "./router/RouterWrapper";
 
 function App() {
-  return (
-    <MainLayout>
-      <Home />
-    </MainLayout>
-  );
+  return <RouterWrapper />;
 }
 
 export default App;

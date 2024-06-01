@@ -1,6 +1,7 @@
 $main-bg: rgb(250, 249, 249);
 $primary-color: #1E1E2C;
-$secondary-color: #007bff;
+$secondary-color: #2472c6;
+$secondary-color-light: #cbe3fc;
 
 $accent-color: #FFD700;
 $light-gray: #F5F5F5;
@@ -8,7 +9,7 @@ $dark-gray: #4A4A4A;
 
 $text-primary: #333333;
 $text-secondary: #777777;
-$link-color: #007bff;
+$link-color: #2472c6;
 
 $background-light: #FFFFFF;
 $background-medium: #cacaca;
@@ -53,11 +54,18 @@ body {
 }
 
 a {
-  color: $link-color;
+  color: $text-primary;
   text-decoration: none;
 
   &:hover {
-    text-decoration: underline;
+    text-decoration: $link-color;
+  }
+  &:active {
+    text-decoration: none;
+  }
+  &:visited {
+    text-decoration: none;
+    color: none;
   }
 }
 
@@ -77,6 +85,7 @@ h1 {
   font-size: $font-xlarge;
   margin: $spacing-medium 0;
   font-weight: 400;
+  color: $secondary-color;
 }
 
 h3 {

@@ -1,5 +1,8 @@
 .header-container{
     border-bottom: 1px solid $border-color;
     padding: 0 $spacing-medium;
-    height: 3rem;
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

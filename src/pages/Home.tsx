@@ -3,6 +3,7 @@ import { Tile } from "../components/Tile/Tile";
 import { useTopPodcasts } from "../hooks/usePodcast";
 import { Podcast } from "../types/podcast";
 import { SearchField } from "../components/SearchField/SearchField";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
   const { podcasts, error, loading } = useTopPodcasts(100);
@@ -36,7 +37,13 @@ export const Home = () => {
       <div className="home-content">
         <div className="podcast-grid">
           {filteredPodcasts.map((podcast: Podcast, idx: number) => {
-            return <Tile key={`podcast-${idx}`} podcastInfo={podcast} />;
+            return (
+              <div key={`podcast-${idx}`}>
+                <Link to={`/podcast/${podcast.id.attributes["im:id"]}`}>
+                  <Tile podcastInfo={podcast} />
+                </Link>
+              </div>
+            );
           })}
         </div>
       </div>
