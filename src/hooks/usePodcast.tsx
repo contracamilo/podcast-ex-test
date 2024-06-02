@@ -1,7 +1,6 @@
 import { Episode, Podcast, PodcastDetail } from "../types/podcast";
 import useFetch from "./useFetchApi";
 
-
 export const useTopPodcasts = (requestedNumber: number) => {
   const { data, error, loading } = useFetch<{ feed: { entry: Podcast[] } }>(
     `https://itunes.apple.com/us/rss/toppodcasts/limit=${requestedNumber}/genre=1310/json`,

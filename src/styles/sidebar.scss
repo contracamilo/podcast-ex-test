@@ -1,0 +1,46 @@
+.sidebar{
+    box-shadow: 0 2px 4px $background-medium;
+    padding: $spacing-medium;
+
+
+    &-image{
+        width: 90%;
+        overflow: hidden;
+        padding: 0;
+        margin: 0 auto;
+
+        img {
+            box-shadow: 0 2px 4px $background-medium;
+            border-radius: 4px;
+        }
+    }
+
+    &-title{
+        border-top: 1px solid $border-color;
+        border-bottom: 1px solid $border-color;
+        margin-top:  $spacing-medium;
+        padding: $spacing-medium 0;
+
+        h2{
+            font-size: $font-medium;
+            margin: $spacing-medium 0;
+            font-weight: 400;
+            margin: 0;
+            font-weight: bold;
+        }
+       
+    }
+
+    &-body{
+        padding: $spacing-medium 0;
+        h4{
+            margin: 0;
+        }
+    }
+
+    p {
+        margin: $spacing-xsmall 0 0 0;
+        font-style: italic;
+        font-size: $font-small;
+    }
+}

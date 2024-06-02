@@ -1,0 +1,39 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    th, td {
+        padding: $spacing-medium;
+        font-size: $font-small;
+        font-weight: 300;
+        text-align: left;
+        border-bottom: 1px solid $dark-gray;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $background-medium;
+        }
+    }
+
+    tr:nth-child(odd) td {
+        background-color: $light-gray;
+        &:hover {
+            background-color: $background-medium;
+        }
+    }
+
+    th {
+        font-weight: bold;
+        cursor: inherit;
+    }
+
+    tbody tr:hover {
+        background-color: #f9f9f9;
+    }
+
+    .episode-title {
+        font-weight: 400;
+        color: $secondary-color;
+        text-decoration: none;
+        cursor: pointer;
+    }
+}

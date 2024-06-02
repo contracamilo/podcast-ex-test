@@ -1,13 +1,11 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { SidePanel } from "../components/SidePanel/SidePanel";
 import { usePodcastDetail } from "../hooks/usePodcast";
+import { EpisodeGrid } from "../components/Grid/Grid";
 
 export const PodcastDetail = () => {
-  const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
-  const { podcastDetail, error, loading } = usePodcastDetail(id!);
-
-  console.log(podcastDetail);
+  const { id: podcastId } = useParams<{ id: string }>();
+  const { podcastDetail, error, loading } = usePodcastDetail(podcastId!);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -19,12 +17,6 @@ export const PodcastDetail = () => {
 
   const { collectionName, artworkUrl600, artistName, episodes } =
     podcastDetail || {};
-
-  const formatDuration = (millis: number) => {
-    const minutes = Math.floor(millis / 60000);
-    const seconds = ((millis % 60000) / 1000).toFixed(0);
-    return `${minutes}:${seconds.padStart(2, "0")}`;
-  };
 
   return (
     <div className="podcast-details">
@@ -39,34 +31,14 @@ export const PodcastDetail = () => {
         )}
       </div>
       <div className="podcast-details-grid-container">
-        <div>
-          {episodes?.length && <span>Episodes {`${episodes.length}`}</span>}
+        <div className="podcast-details-counter">
+          {episodes?.length && <h2>Episodes: {`${episodes.length}`}</h2>}
         </div>
-        {episodes && (
-          <table>
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th>Date</th>
-                <th>Duration</th>
-              </tr>
-            </thead>
-            <tbody>
-              {episodes.map(episode => (
-                <tr key={episode.trackId}>
-                  <td
-                    className="episode-title"
-                    onClick={() => navigate(`/episode/${episode.trackId}`)}
-                  >
-                    {episode.trackName}
-                  </td>
-                  <td>{new Date(episode.releaseDate).toLocaleDateString()}</td>
-                  <td>{formatDuration(episode.trackTimeMillis)}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
+        <div className="podcast-details-grid">
+          {episodes && (
+            <EpisodeGrid episodes={episodes} podcastId={podcastId ?? ""} />
+          )}
+        </div>
       </div>
     </div>
   );

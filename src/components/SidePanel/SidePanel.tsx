@@ -14,11 +14,18 @@ export const SidePanel: FC<SidePanelProps> = ({
   description,
 }) => {
   return (
-    <div>
-      <h2>{title}</h2>
-      <img src={url ?? ""} alt={title ?? ""}/>
-      <p>by {author}</p>
-      <p>Description: {description}</p>
+    <div className="sidebar">
+      <div className="sidebar-image">
+        <img src={url ?? ""} alt={title ?? ""} />
+      </div>
+      <div className="sidebar-title">
+        <h2>{title}</h2>
+        <p>by {author}</p>
+      </div>
+      <div className="sidebar-body">
+        <h4>Description:</h4>
+        <p>{description}</p>
+      </div>
     </div>
   );
 };

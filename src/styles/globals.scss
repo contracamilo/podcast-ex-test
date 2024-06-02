@@ -5,14 +5,15 @@ $secondary-color-light: #cbe3fc;
 
 $accent-color: #FFD700;
 $light-gray: #F5F5F5;
-$dark-gray: #4A4A4A;
+$dark-gray: #bebebe;
 
 $text-primary: #333333;
-$text-secondary: #777777;
+$text-secondary: #d6d6d6;
+$dense-gray: #9b9b9b;
 $link-color: #2472c6;
 
 $background-light: #FFFFFF;
-$background-medium: #cacaca;
+$background-medium: #cac8c8;
 $background-dark: #2C2C2C;
 
 $spacing-xsmall: 0.2rem;
@@ -45,12 +46,17 @@ $image-size: 150px;
     -moz-osx-font-smoothing: grayscale;
   }
 
+  html{
+    scroll-behavior: smooth;
+  }
+
 body {
   background-color: $main-bg;
   font-size: $font-medium;
   line-height: 1.5;
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 a {
