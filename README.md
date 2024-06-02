@@ -1,6 +1,12 @@
 # Podcaster
+This project is a podcast application built using React, TypeScript, and Vite. It features the ability to search for podcasts, view podcast details, and play episodes. The project also uses a caching strategy for API calls to improve performance and user experience.
+
+## Demo
+https://github.com/contracamilo/podcast-ex-test/assets/27745159/966f2d1f-2f19-42c4-aa5e-e53f54b783f8
+
 
 ## Quick Start Guide
+
 
 ## Prerequisites
 
@@ -124,12 +130,6 @@ npm run lint
 └── vite-env.d.ts
 ```
 
-## Project Summary
-
-### Overview
-
-This project is a podcast application built using React, TypeScript, and Vite. It features the ability to search for podcasts, view podcast details, and play episodes. The project also uses a caching strategy for API calls to improve performance and user experience.
-
 ### Key Features
 
 Search Functionality: Allows users to search for podcasts.
@@ -203,21 +203,24 @@ export default useFetch;
 We used the useFetch hook to fetch podcast and episode details, and to implement caching for these API calls:
 
 ```typescript
-export const useEpisodeDetail = (podcastId: string, episodeId: string) => {
+export const usePodcastDetail = (podcastId: string) => {
   const { data, error, loading } = useFetch<{
-    results: Episode[];
+    results: PodcastDetail[];
   }>(
-    `https://itunes.apple.com/lookup?id=${podcastId}&media=podcast&entity=podcastEpisode&limit=1&sort=recent`,
-    `episodeDetail_${podcastId}_${episodeId}`,
-    `episodeDetailExpiry_${podcastId}_${episodeId}`,
+    `https://itunes.apple.com/lookup?id=${podcastId}&media=podcast&entity=podcastEpisode&limit=20`,
+    `podcastDetail_${podcastId}`,
+    `podcastDetailExpiry_${podcastId}`,
   );
 
-  const episodeDetail = data?.results.find(
-    (item): item is Episode => item.trackId === Number(episodeId)
-  );
+  const podcastDetail =
+    data?.results.find(
+      (item): item is PodcastDetail => "collectionName" in item,
+    ) || null;
+  const episodes =
+    data?.results.filter((item: PodcastDetail) => "trackName" in item) || [];
 
   return {
-    episodeDetail,
+    podcastDetail: podcastDetail ? { ...podcastDetail, episodes } : null,
     error,
     loading,
   };
