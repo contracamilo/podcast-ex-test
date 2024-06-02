@@ -1,4 +1,4 @@
-.podcast-details{
+.episode-details{
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -17,9 +17,15 @@
         height: auto;
     }
 
-    &-grid-container{
+    &-player{
         width: 70%;
         height: auto;
+        box-shadow: 0 2px 4px $background-medium;
+        padding: 0 $spacing-medium;
+
+        p{
+            font-size: $font-small;
+        }
     }
 
     @media (max-width: 768px) {
@@ -27,28 +33,8 @@
             width: 100%;
         }
 
-        &-grid-container{
+        &-player{
             width: 100%;
         }
-    }
-
-    &-counter{
-        padding: $spacing-medium;
-        border-radius: $spacing-small;
-        box-shadow: 0 2px 4px $background-medium;
-
-        h2 {
-            margin: 0;
-            padding: 0;
-        }
-    }
-
-
-    &-grid{
-        margin-top: $spacing-large;
-        border-radius: $spacing-small;
-        padding: $spacing-large;
-        box-shadow: 0 2px 4px $background-medium;
-        display: block;
     }
 }

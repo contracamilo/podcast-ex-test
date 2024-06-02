@@ -2,10 +2,20 @@ import { useParams } from "react-router-dom";
 import { SidePanel } from "../components/SidePanel/SidePanel";
 import { usePodcastDetail } from "../hooks/usePodcast";
 import { EpisodeGrid } from "../components/Grid/Grid";
+import { Episode } from "../types/podcast";
+import { useEffect } from "react";
+import { usePodcastContext } from "../hooks/usePodcastContext";
 
 export const PodcastDetail = () => {
   const { id: podcastId } = useParams<{ id: string }>();
   const { podcastDetail, error, loading } = usePodcastDetail(podcastId!);
+  const { setPodcastId } = usePodcastContext();
+  const { collectionName, artworkUrl600, description, artistName, episodes } =
+    podcastDetail || {};
+
+  useEffect(() => {
+    setPodcastId(podcastId || null);
+  }, [podcastId, setPodcastId]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -15,9 +25,6 @@ export const PodcastDetail = () => {
     return <div>{error}</div>;
   }
 
-  const { collectionName, artworkUrl600, artistName, episodes } =
-    podcastDetail || {};
-
   return (
     <div className="podcast-details">
       <div className="podcast-details-side-panel">
@@ -26,7 +33,7 @@ export const PodcastDetail = () => {
             title={collectionName ?? null}
             url={artworkUrl600 ?? null}
             author={artistName ?? null}
-            description={artistName ?? null}
+            description={description ?? null}
           />
         )}
       </div>
@@ -36,7 +43,10 @@ export const PodcastDetail = () => {
         </div>
         <div className="podcast-details-grid">
           {episodes && (
-            <EpisodeGrid episodes={episodes} podcastId={podcastId ?? ""} />
+            <EpisodeGrid
+              // casting to Episode[] because the API response is not typed and has variations
+              episodes={episodes as unknown as Episode[]}
+            />
           )}
         </div>
       </div>

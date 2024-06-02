@@ -39,15 +39,19 @@ export const usePodcastDetail = (podcastId: string) => {
 };
 
 export const useEpisodeDetail = (podcastId: string, episodeId: string) => {
-  const { data, error, loading } = useFetch<{ results: Episode[] }>(
-    `https://itunes.apple.com/lookup?id=${episodeId}&media=podcast&entity=podcastEpisode`,
-    `episodeDetail_${episodeId}`,
-    `episodeDetailExpiry_${episodeId}`,
+  const { data, error, loading } = useFetch<{
+    results: Episode[];
+  }>(
+    `https://itunes.apple.com/lookup?id=${podcastId}&media=podcast&entity=podcastEpisode&limit=1&sort=recent`,
+    `episodeDetail_${podcastId}_${episodeId}`,
+    `episodeDetailExpiry_${podcastId}_${episodeId}`,
   );
-
+  const episodeDetail = data?.results.find(
+    (item): item is Episode => item.trackId === Number(episodeId),
+    null,
+  );
   return {
-    episodeDetail:
-      data?.results.find(episode => episode?.id === episodeId) || null,
+    episodeDetail,
     error,
     loading,
   };

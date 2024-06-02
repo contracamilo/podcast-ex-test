@@ -1,15 +1,11 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { formatDuration } from "../../utils/helpers";
 import { Episode } from "../../types/podcast";
+import { usePodcastContext } from "../../hooks/usePodcastContext";
 
-export const EpisodeGrid = ({
-  episodes,
-  podcastId,
-}: {
-  episodes: Episode[];
-  podcastId: string;
-}) => {
-  const navigate = useNavigate();
+export const EpisodeGrid = ({ episodes }: { episodes: Episode[] }) => {
+  const { podcastId, setEpisodeId } = usePodcastContext();
+  const podcastEpisodes = episodes.slice(1);
   return (
     <table>
       <thead>
@@ -20,20 +16,22 @@ export const EpisodeGrid = ({
         </tr>
       </thead>
       <tbody>
-        {episodes.map(episode => (
-          <tr key={episode.trackId}>
-            <td
-              className="episode-title"
-              onClick={() =>
-                navigate(`/podcast/${podcastId}/episode/${episode.trackId}`)
-              }
-            >
-              {episode.trackName}
-            </td>
-            <td>{new Date(episode.releaseDate).toLocaleDateString()}</td>
-            <td>{formatDuration(episode.trackTimeMillis)}</td>
-          </tr>
-        ))}
+        {podcastEpisodes.map(episode => {
+          return (
+            <tr key={episode.trackId}>
+              <td className="episode-title">
+                <Link
+                  to={`/podcast/${podcastId}/episode/${episode.trackId}`}
+                  onClick={() => setEpisodeId(`${episode.trackId}`)}
+                >
+                  {episode.trackName}
+                </Link>
+              </td>
+              <td>{new Date(episode.releaseDate).toLocaleDateString()}</td>
+              <td>{formatDuration(episode.trackTimeMillis)}</td>
+            </tr>
+          );
+        })}
       </tbody>
     </table>
   );

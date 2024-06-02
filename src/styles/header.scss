@@ -5,4 +5,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+
 }
+
+.header-breadcrumb{
+    width: 100%;
+    padding: $spacing-small;
+    span {
+        font-size: $font-small;
+        color: $dense-gray;
+        cursor: pointer;
+    }
+   }
