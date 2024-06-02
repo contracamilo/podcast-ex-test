@@ -20,7 +20,7 @@ Hosted: [Podcaster](https://podcast-ex-test.vercel.app/)
 1. **Clone the repository:**
 
 ```sh
-git clone [<your-repository-url>](https://github.com/contracamilo/podcast-ex-test.git)
+git clone <https://github.com/contracamilo/podcast-ex-test.git>
 cd podcast-ex-test
 ```
 
