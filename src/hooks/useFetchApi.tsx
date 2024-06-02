@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useFetch = <T,>(
+export const useFetch = <T,>(
   url: string,
   storageKey: string,
   expiryKey: string,

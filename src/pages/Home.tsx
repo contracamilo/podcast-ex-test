@@ -4,6 +4,7 @@ import { useTopPodcasts } from "../hooks/usePodcast";
 import { Podcast } from "../types/podcast";
 import { SearchField } from "../components/SearchField/SearchField";
 import { Link } from "react-router-dom";
+import { RouteLoadingIndicator } from "../components/Loader/Loader";
 
 export const Home = () => {
   const { podcasts, error, loading } = useTopPodcasts(100);
@@ -16,7 +17,11 @@ export const Home = () => {
   }, [podcasts, searchTerm]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="initial-layout">
+        <RouteLoadingIndicator />
+      </div>
+    );
   }
 
   if (error) {

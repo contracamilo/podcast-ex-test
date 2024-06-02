@@ -4,7 +4,7 @@ import { Episode } from "../../types/podcast";
 import { usePodcastContext } from "../../hooks/usePodcastContext";
 
 export const EpisodeGrid = ({ episodes }: { episodes: Episode[] }) => {
-  const { podcastId, setEpisodeId } = usePodcastContext();
+  const { podcastId, setEpisode } = usePodcastContext();
   const podcastEpisodes = episodes.slice(1);
   return (
     <table>
@@ -22,7 +22,7 @@ export const EpisodeGrid = ({ episodes }: { episodes: Episode[] }) => {
               <td className="episode-title">
                 <Link
                   to={`/podcast/${podcastId}/episode/${episode.trackId}`}
-                  onClick={() => setEpisodeId(`${episode.trackId}`)}
+                  onClick={() => setEpisode(episode)}
                 >
                   {episode.trackName}
                 </Link>

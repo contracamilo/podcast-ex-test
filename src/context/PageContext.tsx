@@ -1,10 +1,11 @@
 import React, { createContext, useState, ReactNode } from "react";
+import { Episode } from "../types/podcast";
 
 export interface PodcastContextProps {
   podcastId: string | null;
-  episodeId: string | null;
+  episode: Episode | null;
   setPodcastId: (id: string | null) => void;
-  setEpisodeId: (id: string | null) => void;
+  setEpisode: (episode: Episode | null) => void;
 }
 
 export const PodcastContext = createContext<PodcastContextProps | undefined>(
@@ -15,11 +16,11 @@ export const PodcastProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
   const [podcastId, setPodcastId] = useState<string | null>(null);
-  const [episodeId, setEpisodeId] = useState<string | null>(null);
+  const [episode, setEpisode] = useState<Episode | null>(null);
 
   return (
     <PodcastContext.Provider
-      value={{ podcastId, episodeId, setPodcastId, setEpisodeId }}
+      value={{ podcastId, episode, setPodcastId, setEpisode }}
     >
       {children}
     </PodcastContext.Provider>

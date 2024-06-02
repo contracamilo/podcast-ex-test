@@ -7,18 +7,22 @@ table {
         font-weight: 300;
         text-align: left;
         border-bottom: 1px solid $dark-gray;
+        height: 3rem;
+        padding: 0;
         cursor: pointer;
+        padding: 0 $spacing-medium;
 
-        &:hover {
-            background-color: $background-medium;
+        a {
+            height: auto;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: $spacing-medium 0;
         }
     }
 
     tr:nth-child(odd) td {
         background-color: $light-gray;
-        &:hover {
-            background-color: $background-medium;
-        }
     }
 
     th {
@@ -35,5 +39,11 @@ table {
         color: $secondary-color;
         text-decoration: none;
         cursor: pointer;
+
+
+        &:hover {
+            background-color: $secondary-color-light;
+            transition: background-color 0.3s ease;
+        }
     }
 }

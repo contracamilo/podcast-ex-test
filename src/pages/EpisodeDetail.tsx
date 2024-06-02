@@ -1,25 +1,10 @@
-import { useEpisodeDetail } from "../hooks/usePodcast";
 import { SidePanel } from "../components/SidePanel/SidePanel";
 import { truncatedDescription } from "../utils/helpers";
 import AudioPlayer from "../components/AudioPlayer/AudioPlayer";
 import { usePodcastContext } from "../hooks/usePodcastContext";
 
 export const EpisodeDetail = () => {
-  const { podcastId, episodeId } = usePodcastContext();
-  const { episodeDetail, error, loading } = useEpisodeDetail(
-    podcastId ?? "",
-    episodeId ?? "",
-  );
-
-  console.log(episodeDetail);
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>{error}</div>;
-  }
+  const { episode: episodeDetail } = usePodcastContext();
 
   const {
     collectionName,

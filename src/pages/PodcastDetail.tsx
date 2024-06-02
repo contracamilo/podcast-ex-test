@@ -5,6 +5,8 @@ import { EpisodeGrid } from "../components/Grid/Grid";
 import { Episode } from "../types/podcast";
 import { useEffect } from "react";
 import { usePodcastContext } from "../hooks/usePodcastContext";
+import { truncatedDescription } from "../utils/helpers";
+import { RouteLoadingIndicator } from "../components/Loader/Loader";
 
 export const PodcastDetail = () => {
   const { id: podcastId } = useParams<{ id: string }>();
@@ -18,9 +20,12 @@ export const PodcastDetail = () => {
   }, [podcastId, setPodcastId]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="initial-layout">
+        <RouteLoadingIndicator />
+      </div>
+    );
   }
-
   if (error) {
     return <div>{error}</div>;
   }
@@ -33,7 +38,7 @@ export const PodcastDetail = () => {
             title={collectionName ?? null}
             url={artworkUrl600 ?? null}
             author={artistName ?? null}
-            description={description ?? null}
+            description={truncatedDescription(description) ?? null}
           />
         )}
       </div>
@@ -43,10 +48,7 @@ export const PodcastDetail = () => {
         </div>
         <div className="podcast-details-grid">
           {episodes && (
-            <EpisodeGrid
-              // casting to Episode[] because the API response is not typed and has variations
-              episodes={episodes as unknown as Episode[]}
-            />
+            <EpisodeGrid episodes={episodes as unknown as Episode[]} />
           )}
         </div>
       </div>

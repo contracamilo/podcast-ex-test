@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { RouteLoadingIndicator } from "../Loader/Loader";
 
 export const Header = () => {
   const [loading, setLoading] = useState<boolean>(false);
@@ -11,12 +12,8 @@ export const Header = () => {
 
     setTimeout(() => {
       setLoading(false);
-    }, 500);
+    }, 600);
   }, [location]);
-
-  const RouteLoadingIndicator: React.FC = () => (
-    <div className="loading-indicator">Loading...</div>
-  );
 
   return (
     <>

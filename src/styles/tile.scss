@@ -6,6 +6,11 @@
     margin-bottom: 8rem;
     height: 14rem;
     cursor: pointer;
+    transition: transform 0.2s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+    }
 
     &-inner-content{
         background-color: $light-gray;
@@ -14,11 +19,13 @@
         position: relative;
         border-radius: 1rem;
         text-align: center;
-        padding-top:  $spacing-xlarge;
+        padding-top: $spacing-xlarge;
         padding-left: 0.7rem;
         padding-right: 0.7rem;
         &:hover{
             background-color: $secondary-color-light;
+            border: 1px solid $secondary-color;
+            transition: background-color 0.3s ease;
         }
 
         span {
