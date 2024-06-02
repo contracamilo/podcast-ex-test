@@ -2,6 +2,8 @@
 
 This project is a podcast application built using React, TypeScript, and Vite. It features the ability to search for podcasts, view podcast details, and play episodes. The project also uses a caching strategy for API calls to improve performance and user experience.
 
+Hosted: https://podcast-ex-test-f8bct9m09-camilo-riveras-projects.vercel.app/
+
 ## Demo
 
 <https://github.com/contracamilo/podcast-ex-test/assets/27745159/966f2d1f-2f19-42c4-aa5e-e53f54b783f8>
