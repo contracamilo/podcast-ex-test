@@ -73,7 +73,8 @@ Serve the production build:
 serve -s dist
 ```
 
-1. **Linting & Testing::**
+
+**Linting & Testing::**
 To build the application for production, use:
 
 To run the tests and lint the project, use:
@@ -85,7 +86,7 @@ npm run test
 npm run lint
 ```
 
-5. **Project Structure::**
+**Project Structure::**
 
 ```sh
 .
