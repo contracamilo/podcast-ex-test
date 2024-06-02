@@ -19,7 +19,7 @@ export const usePodcastDetail = (podcastId: string) => {
   const { data, error, loading } = useFetch<{
     results: PodcastDetail[];
   }>(
-    `https://itunes.apple.com/lookup?id=${podcastId}&media=podcast&entity=podcastEpisode&limit=20`,
+    `https://api.allorigins.win/get?url=${encodeURIComponent(`https://itunes.apple.com/lookup?id=${podcastId}&media=podcast&entity=podcastEpisode&limit=20`)}`,
     `podcastDetail_${podcastId}`,
     `podcastDetailExpiry_${podcastId}`,
   );

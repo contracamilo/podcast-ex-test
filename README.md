@@ -1,12 +1,12 @@
 # Podcaster
+
 This project is a podcast application built using React, TypeScript, and Vite. It features the ability to search for podcasts, view podcast details, and play episodes. The project also uses a caching strategy for API calls to improve performance and user experience.
 
 ## Demo
-https://github.com/contracamilo/podcast-ex-test/assets/27745159/966f2d1f-2f19-42c4-aa5e-e53f54b783f8
 
+<https://github.com/contracamilo/podcast-ex-test/assets/27745159/966f2d1f-2f19-42c4-aa5e-e53f54b783f8>
 
 ## Quick Start Guide
-
 
 ## Prerequisites
 
@@ -52,6 +52,24 @@ npm run build
 ```
 
 This command generates a dist folder containing the optimized application. You can then deploy the contents of the dist folder to your preferred hosting service.
+
+**Serve the Production Build**
+You need to serve the contents of the dist folder using a static server. There are several ways to do this, such as using a static server like serve, deploying to a hosting service, or using a web server like Nginx or Apache.
+
+**Using serve**
+You can use a simple static file server like serve to serve the production build locally.
+
+Install serve globally if you haven't already:
+
+```sh
+npm install -g serve
+```
+
+Serve the production build:
+
+```sh
+serve -s dist
+```
 
 1. **Linting & Testing::**
 To build the application for production, use:
