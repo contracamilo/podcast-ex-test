@@ -6,7 +6,6 @@ export const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-
   useEffect(() => {
     setLoading(true);
 

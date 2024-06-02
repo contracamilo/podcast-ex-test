@@ -7,8 +7,8 @@ import { usePodcastContext } from "../hooks/usePodcastContext";
 export const EpisodeDetail = () => {
   const { podcastId, episodeId } = usePodcastContext();
   const { episodeDetail, error, loading } = useEpisodeDetail(
-    podcastId,
-    episodeId,
+    podcastId ?? "",
+    episodeId ?? "",
   );
 
   console.log(episodeDetail);

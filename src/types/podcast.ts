@@ -134,7 +134,7 @@ interface PodcastDetail {
   contentAdvisoryRating: string;
   artworkUrl600: string;
   genreIds: string[];
-  genres: genre[];
+  genres: Genre[];
   episodes: Episode[];
 }
 
